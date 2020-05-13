@@ -1,6 +1,4 @@
-#s1260249 森下裕平
-
-	  .data
+	  .data                 #s1260249 森下裕平
 A:        .word 1
           .word 2
           .word 6
