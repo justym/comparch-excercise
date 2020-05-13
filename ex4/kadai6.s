@@ -1,3 +1,5 @@
+#s1260249 森下裕平
+
 	  .data
 A:        .word 1
           .word 2
@@ -10,14 +12,14 @@ A:        .word 1
 SIZE:     .word 7
 
 	  .text
-main:     lui     $sp, 32767
-          ori     $sp, $sp, 61436
+main:     lui     $sp, 32767      #spの上位16ビット初期化
+          ori     $sp, $sp, 61436 #spの下位16ビット初期化
           addi    $s0, $0, 2
           addi    $s1, $0, 0
           addi    $s2, $0, 2
           addi    $s3, $0, 0
-          la      $a0, A
-          lw      $a1, SIZE
+          la      $a0, A	  #配列Aの先頭アドレス
+          lw      $a1, SIZE       #サイズ
           jal     sort
 exit:     j       exit
 
@@ -71,8 +73,8 @@ swap:     add     $t1, $a1, $0
           add     $t1, $t1, $t1
           add     $t1, $t1, $t1
           add     $t1, $a0, $t1
-          lw      $t0, 0($t1)
-          lw      $t2, 4($t1)
-          sw      $t2, 0($t1)
-          sw      $t0, 4($t1)
+          lw      $t0, 0($t1)  #ソート対象の配列要素
+          lw      $t2, 4($t1)  #ソート対象の比較対象
+          sw      $t2, 0($t1)  #swap
+          sw      $t0, 4($t1)  #swap
           jr      $ra
