@@ -10,7 +10,7 @@ main:
   addi    $10, $0, 1 #bit演算用レジスタ
   addi    $11, $0, 0 # i
   addi    $12, $0, 16 # N
-  addi    $14, $0, 0 # result
+  addi    $14, $0, 0 # 積
 
 loop:
   beq     $11, $12, loopend
@@ -26,7 +26,7 @@ cal:
   j       loop
 
 loopend:
-  sw      $14, C
+  sw      $14, C #結果代入
     
 exit:
   j       exit
