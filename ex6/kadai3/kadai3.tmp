@@ -1,0 +1,58 @@
+TOOL:	xmxlmode	19.03-s013: Started on May 25, 2020 at 08:54:40 JST
+xmxlmode
+	+delay_mode_path
+	+typdelays
+	-l
+	simout.tmp
+	/home/student/s1260249/CadenceComparch2020/CPU1_run2/testfixture.template
+	-f /home/student/s1260249/CadenceComparch2020/CPU1_run2/verilog.inpfiles
+		hdlFilesDir/timescaleF
+		/home/course/comparch/lib/comparch/gen4/behavioral/verilog.v
+		/home/student/s1260249/CadenceComparch2020/comparch_exercise/Control1/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Shift_Left_2_32/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Shift_Left_2_28/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Add/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/ALU/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Data_memory/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Sign_extended/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Instruction_memory/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Registers/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/Mux/behavioral/verilog.v
+		/home/student/s1260249/CadenceComparch2020/comparch_exercise/ALUcontrol/behavioral/verilog.v
+		/home/course/comparch/lib/comparch/PC/behavioral/verilog.v
+		ihnl/cds0/netlist
+	+nostdout
+	+nocopyright
+	+ncvlogargs+" -neverwarn -nostdout -nocopyright "
+	+ncelabargs+" -neg_tchk  -nonotifier  -sdf_NOCheck_celltype  -access +r  -pulse_e 100  -pulse_r 100  -neverwarn  -timescale 1ns/1ns -nostdout -nocopyright"
+	+ncsimargs+" -neverwarn  -nocopyright -gui -input /home/student/s1260249/CadenceComparch2020/CPU1_run2/.simTmpNCCmd "
+	+mpssession+virtuoso46881
+	+mpshost+cadsv192
+xmxlmode: *W,OPDEPRREN: Command Line Option (+ncvlogargs+ -neverwarn -nostdout -nocopyright ) is deprecated. Use (+xmvlogargs+ -neverwarn -nostdout -nocopyright ) instead.
+xmxlmode: *W,OPDEPRREN: Command Line Option (+ncelabargs+ -neg_tchk  -nonotifier  -sdf_NOCheck_celltype  -access +r  -pulse_e 100  -pulse_r 100  -neverwarn  -timescale 1ns/1ns -nostdout -nocopyright) is deprecated. Use (+xmelabargs+ -neg_tchk  -nonotifier  -sdf_NOCheck_celltype  -access +r  -pulse_e 100  -pulse_r 100  -neverwarn  -timescale 1ns/1ns -nostdout -nocopyright) instead.
+xmxlmode: *W,OPDEPRREN: Command Line Option (+ncsimargs+ -neverwarn  -nocopyright -gui -input /home/student/s1260249/CadenceComparch2020/CPU1_run2/.simTmpNCCmd ) is deprecated. Use (+xmsimargs+ -neverwarn  -nocopyright -gui -input /home/student/s1260249/CadenceComparch2020/CPU1_run2/.simTmpNCCmd ) instead.
+
+-------------------------------------
+Relinquished control to SimVision...
+xcelium> 
+xcelium> source /usr/local/cadence/XCELIUM1903/tools/xcelium/files/xmsimrc
+xcelium> database -open shmWave -shm -default -into shm.db
+Created default SHM database shmWave
+xcelium> probe -create -shm test  -all   -depth 1
+Created probe 1
+xcelium> probe -create -shm test.top.ADD_for_address_out test.top.ALUB test.top.ALUOp test.top.ALUSrc test.top.ALU_out test.top.ALUcontrol_out test.top.Branch test.top.Instruction test.top.Jump test.top.Jump_address_27_0 test.top.Jump_address_31_28 test.top.Jump_and_Zero test.top.MUX_WriteRegister_out test.top.MemRead test.top.MemWrite test.top.MemtoReg test.top.Mux_for_BEQ_out test.top.Out4 test.top.PC_in test.top.PC_out test.top.ReadData1_out test.top.ReadData2_out test.top.ReadData_out test.top.RegDst test.top.RegWrite test.top.Shift_left_2_32_out test.top.Sign_extended_out test.top.WriteData_in test.top.Zero_out
+Created probe 2
+xcelium> run
+Simulation Results Start
+PC_out = 00001034
+RF[r13] = 00000007
+B MEM['h00005024] = 0000000c
+B MEM['h00005028] = 00000022
+B MEM['h0000502c] = 00000038
+B MEM['h00005030] = 0000004e
+B MEM['h00005034] = 0000005a
+B MEM['h00005038] = 00000014
+B MEM['h0000503c] = 00000014
+Simulation complete via $finish(1) at time 20 US + 0
+./testfixture.template:34 $finish; 
+xcelium> 
