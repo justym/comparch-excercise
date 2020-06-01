@@ -1,0 +1,46 @@
+`timescale 1ns / 1ns
+
+module test;
+CPU2 top(); 
+
+reg CK;
+integer CK_num;
+
+initial
+begin
+ 
+CK = 1'b0;
+CK_num = 1;
+`include "/home/student/s1260249/comparch/Ex7/testfixture.include"
+
+#50
+#50 CK = ~CK;
+for(CK_num=2;CK_num<=200;CK_num=CK_num+1)
+  begin
+    #50 CK=~CK;
+    #50 CK=~CK;
+  end
+
+$display("Simulation start");
+$display("SW_RSLT: 335e: %h",Mem.cell['h0000500c]);
+$display("ADD_RSLT: 407f: %h",Mem.cell['h00005010]);
+$display("SUB_RSLT: 263d: %h",Mem.cell['h00005014]);
+$display("ADDI_RSLT: 345e: %h",Mem.cell['h00005018]);
+$display("AND_RSLT:  100: %h",Mem.cell['h0000501c]);
+$display("OR_RSLT: 3f7f: %h",Mem.cell['h00005020]);
+$display("ANDI_RSLT: 15e: %h",Mem.cell['h00005024]);
+$display("ORI_RSLT: 33ff: %h",Mem.cell['h00005028]);
+$display("J_RSLT: 1: %h",Mem.cell['h0000502c]);
+$display("BEQ_NT_RSLT: 3: %h",Mem.cell['h00005030]);
+$display("BEQ_T_RSLT: 1: %h",Mem.cell['h00005034]);
+$display("SLT0_RSLT: 0: %h",Mem.cell['h00005038]);
+$display("SLT1_RSLT: 1: %h",Mem.cell['h0000503c]);
+$display("SLTI0_RSLT: 0: %h",Mem.cell['h00005040]);
+$display("SLTI1_RSLT: 1: %h",Mem.cell['h00005044]);
+$finish;
+end
+endmodule
+
+module Mem();
+reg[31:0]cell[0:65535];
+endmodule 

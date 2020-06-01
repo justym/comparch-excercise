@@ -1,0 +1,36 @@
+
+`timescale 1ns / 1ns
+
+module test;
+CPU2 top(); 
+
+reg CK;
+integer CK_num;
+
+initial
+begin
+
+CK=1'b0;
+CK_num=1; 
+`include "/home/student/s1260249/comparch/Ex7/kadai4/testfixture.include"
+
+#50
+#50 CK=~CK;
+
+for(CK_num=2;CK_num<=200;CK_num=CK_num+1)
+  begin
+    #50 CK=~CK;
+    #50 CK=~CK;
+  end
+
+$display("Simulation Start");
+$display("C(Result Calcuration): %h",Mem.cell['h00005008]);
+$finish;
+    
+end
+endmodule
+
+module Mem();
+reg[31:0]cell[0:65535];
+endmodule
+ 

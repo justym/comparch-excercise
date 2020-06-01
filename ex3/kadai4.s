@@ -24,7 +24,7 @@ main:
 loop:
   beq     $11, $12, loopend
   and     $24, $8, $10
-  beq     $24, $0, inc
+  beq     $24, $0, cal 
   add     $14, $14, $9
   j       cal
 
